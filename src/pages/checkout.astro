@@ -1,0 +1,340 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { checkoutPlans } from '../data/kidiko';
+import { resolvePath } from '../utils/navigation';
+
+const plansList = Object.values(checkoutPlans);
+---
+
+<BaseLayout
+  title="Checkout & Pemesanan Paket — Kidiko"
+  description="Konfirmasi pemesanan paket Jejoo AI dan layanan Kidiko. Hubungkan sekolah atau kelas Anda dengan asisten AI WhatsApp terbaik."
+>
+  <div class="bg-slate-50 py-16 dark:bg-slate-950 min-h-[85vh]">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <!-- Breadcrumb / Back Link -->
+      <div class="mb-8">
+        <a 
+          href={resolvePath('/jejoo/')} 
+          class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-700 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300 transition-colors"
+        >
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+          Kembali ke Halaman Jejoo AI
+        </a>
+      </div>
+
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="inline-flex rounded-full bg-primary-100 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-800 dark:bg-primary-950/80 dark:text-primary-300">
+          Formulir Pemesanan Resmi
+        </span>
+        <h1 class="mt-3 text-3xl font-heading font-extrabold text-slate-950 sm:text-4xl dark:text-white">
+          Selesaikan Pemesanan Paket
+        </h1>
+        <p class="mt-3 text-slate-600 dark:text-slate-300">
+          Lengkapi data di bawah ini. Pesanan Anda akan langsung diteruskan ke <strong>WhatsApp Admin Kidiko</strong> untuk konfirmasi dan panduan aktivasi bot.
+        </p>
+      </div>
+
+      <div class="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] items-start">
+        <!-- Kolom Form Pemesanan -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+          <h2 class="text-xl font-bold text-slate-950 dark:text-white mb-6 flex items-center gap-2">
+            <span>📝</span> Data Pemesan & Sekolah
+          </h2>
+
+          <form id="checkout-form" class="space-y-5">
+            <!-- Pilihan Paket -->
+            <div>
+              <label for="plan-select" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+                Paket yang Dipilih <span class="text-rose-500">*</span>
+              </label>
+              <select 
+                id="plan-select" 
+                name="plan" 
+                required
+                class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+              >
+                {plansList.map((p) => (
+                  <option value={p.id}>
+                    {p.name} — {p.price} {p.period}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <!-- Nama Lengkap -->
+            <div>
+              <label for="full-name" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+                Nama Lengkap Pemesan <span class="text-rose-500">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="full-name" 
+                name="full_name" 
+                required 
+                placeholder="Contoh: Budi Santoso, S.Pd" 
+                class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+              />
+            </div>
+
+            <!-- Nomor WhatsApp -->
+            <div>
+              <label for="wa-number" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+                Nomor WhatsApp Aktif <span class="text-rose-500">*</span>
+              </label>
+              <input 
+                type="tel" 
+                id="wa-number" 
+                name="wa_number" 
+                required 
+                placeholder="Contoh: 081234567890" 
+                class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+              />
+              <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Nomor ini akan digunakan untuk konfirmasi dan aktivasi bot.</p>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-2">
+              <!-- Nama Sekolah / Lembaga -->
+              <div>
+                <label for="institution" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+                  Nama Sekolah / Lembaga <span class="text-rose-500">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="institution" 
+                  name="institution" 
+                  required 
+                  placeholder="Contoh: SD Negeri Inklusi 01" 
+                  class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                />
+              </div>
+
+              <!-- Peran / Jabatan -->
+              <div>
+                <label for="role" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+                  Peran / Jabatan
+                </label>
+                <select 
+                  id="role" 
+                  name="role" 
+                  class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                >
+                  <option value="Guru Kelas Inklusi">Guru Kelas / Mata Pelajaran</option>
+                  <option value="Guru Pendamping Khusus (GPK)">Guru Pendamping Khusus (GPK)</option>
+                  <option value="Kepala Sekolah / Yayasan">Kepala Sekolah / Pimpinan Yayasan</option>
+                  <option value="Orang Tua / Wali Murid">Orang Tua / Wali Murid</option>
+                  <option value="Psikolog / Terapis">Psikolog / Terapis Anak</option>
+                  <option value="Lainnya">Lainnya</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Kota / Kabupaten -->
+            <div>
+              <label for="city" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+                Kota / Kabupaten <span class="text-rose-500">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="city" 
+                name="city" 
+                required 
+                placeholder="Contoh: Bandung, Jawa Barat" 
+                class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+              />
+            </div>
+
+            <!-- Catatan Kebutuhan -->
+            <div>
+              <label for="notes" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+                Catatan Kebutuhan / Kasus Spesifik (Opsional)
+              </label>
+              <textarea 
+                id="notes" 
+                name="notes" 
+                rows="3" 
+                placeholder="Contoh: Ada 3 murid ADHD dan 1 Slow Learner di kelas 3. Ingin modul kurikulum sekolah diintegrasikan ke bot..." 
+                class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+              ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-4">
+              <button 
+                type="submit" 
+                id="submit-btn"
+                class="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-emerald-600 px-6 py-4 text-base font-bold text-white shadow-xl shadow-emerald-600/25 transition-all hover:bg-emerald-700 hover:scale-[1.01] active:scale-95"
+              >
+                <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+                Kirim Pesanan ke WhatsApp Admin
+              </button>
+              <p class="mt-2 text-center text-xs text-slate-500 dark:text-slate-400">
+                Pesan akan diformat otomatis dan diarahkan ke WhatsApp Admin resmi Kidiko (`+62 896-7694-3666`).
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <!-- Kolom Ringkasan Pesanan (Order Summary) -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900 sticky top-24">
+          <h3 class="text-lg font-bold text-slate-950 dark:text-white pb-4 border-b border-slate-100 dark:border-slate-800">
+            Ringkasan Pesanan
+          </h3>
+
+          <div class="mt-5">
+            <div class="flex items-center justify-between">
+              <span id="summary-badge" class="inline-flex rounded-full bg-primary-100 px-2.5 py-0.5 text-xs font-semibold text-primary-800 dark:bg-primary-950 dark:text-primary-300">
+                Paket Terpilih
+              </span>
+              <span id="summary-category" class="text-xs font-medium text-slate-500 dark:text-slate-400">
+                Pendidikan Inklusif
+              </span>
+            </div>
+
+            <h4 id="summary-name" class="mt-2 text-xl font-bold text-slate-950 dark:text-white">
+              Jejoo AI — Sekolah Inklusi Pro
+            </h4>
+            <p id="summary-desc" class="mt-1 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Solusi lengkap sekolah penyelenggara pendidikan inklusi untuk mendukung seluruh tim guru kelas.
+            </p>
+
+            <div class="mt-4 flex items-baseline border-y border-slate-100 py-3 dark:border-slate-800">
+              <span id="summary-price" class="text-3xl font-extrabold text-primary-600 dark:text-primary-400">Rp 499.000</span>
+              <span id="summary-period" class="ml-1 text-sm font-semibold text-slate-500 dark:text-slate-400">/bulan</span>
+            </div>
+
+            <div class="mt-4">
+              <p class="text-xs font-bold text-slate-900 uppercase tracking-wider dark:text-slate-200">
+                Fitur yang Didapatkan:
+              </p>
+              <ul id="summary-features" class="mt-2.5 space-y-2 text-xs text-slate-600 dark:text-slate-300">
+                <!-- Diisi secara dinamis oleh JavaScript -->
+              </ul>
+            </div>
+
+            <div class="mt-6 rounded-xl bg-slate-50 p-3.5 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/50">
+              <div class="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-300">
+                <span class="text-emerald-500 font-bold shrink-0">🛡️</span>
+                <span>Jaminan aktivasi cepat 1x24 jam setelah konfirmasi pembayaran ke admin. Bimbingan awal disediakan.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Client-side Logic -->
+  <script is:inline define:vars={{ plansData: checkoutPlans }}>
+    function initCheckout() {
+      const planSelect = document.getElementById('plan-select');
+      const form = document.getElementById('checkout-form');
+      const summaryName = document.getElementById('summary-name');
+      const summaryDesc = document.getElementById('summary-desc');
+      const summaryPrice = document.getElementById('summary-price');
+      const summaryPeriod = document.getElementById('summary-period');
+      const summaryBadge = document.getElementById('summary-badge');
+      const summaryCategory = document.getElementById('summary-category');
+      const summaryFeatures = document.getElementById('summary-features');
+
+      // Ambil parameter '?plan=...' dari URL
+      const urlParams = new URLSearchParams(window.location.search);
+      let selectedPlanKey = urlParams.get('plan') || 'jejoo-sekolah';
+
+      // Validasi apakah plan ada di data, jika tidak fallback ke 'jejoo-sekolah'
+      if (!plansData[selectedPlanKey]) {
+        selectedPlanKey = 'jejoo-sekolah';
+      }
+
+      // Update dropdown ke nilai yang sesuai
+      if (planSelect) {
+        planSelect.value = selectedPlanKey;
+      }
+
+      function updateSummary(planKey) {
+        const plan = plansData[planKey] || plansData['jejoo-sekolah'];
+        if (!plan) return;
+
+        if (summaryName) summaryName.textContent = plan.name;
+        if (summaryDesc) summaryDesc.textContent = plan.description;
+        if (summaryPrice) summaryPrice.textContent = plan.price;
+        if (summaryPeriod) summaryPeriod.textContent = plan.period || '';
+        if (summaryBadge) summaryBadge.textContent = plan.badge || plan.capacity;
+        if (summaryCategory) summaryCategory.textContent = plan.category;
+
+        if (summaryFeatures) {
+          summaryFeatures.innerHTML = '';
+          plan.features.forEach((feat) => {
+            const li = document.createElement('li');
+            li.className = 'flex items-start gap-2';
+            li.innerHTML = '<span class="text-emerald-500 font-bold shrink-0">✓</span><span>' + feat + '</span>';
+            summaryFeatures.appendChild(li);
+          });
+        }
+      }
+
+      // Render pertama kali
+      updateSummary(selectedPlanKey);
+
+      // Listener ketika pengguna mengganti paket di dropdown
+      if (planSelect) {
+        planSelect.addEventListener('change', (e) => {
+          updateSummary(e.target.value);
+        });
+      }
+
+      // Handler Submit Form
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          const selectedPlan = plansData[planSelect ? planSelect.value : 'jejoo-sekolah'];
+          const fullName = document.getElementById('full-name')?.value.trim() || '';
+          let waNumber = document.getElementById('wa-number')?.value.trim() || '';
+          const institution = document.getElementById('institution')?.value.trim() || '';
+          const role = document.getElementById('role')?.value || '';
+          const city = document.getElementById('city')?.value.trim() || '';
+          const notes = document.getElementById('notes')?.value.trim() || '-';
+
+          // Format nomor WA pemesan (opsional pembersihan)
+          if (waNumber.startsWith('0')) {
+            waNumber = '62' + waNumber.substring(1);
+          }
+
+          // Susun pesan WhatsApp yang rapi dan profesional
+          const messageLines = [
+            'Halo Admin Kidiko, saya ingin memesan/berlangganan paket AI berikut:',
+            '',
+            '📋 *RINCIAN PEMESANAN KIDIKO*',
+            '-------------------------------------------',
+            `📦 *Paket:* ${selectedPlan.name}`,
+            `💰 *Harga:* ${selectedPlan.price} ${selectedPlan.period || ''}`,
+            `👤 *Nama Lengkap:* ${fullName}`,
+            `📱 *No. WhatsApp:* ${waNumber}`,
+            `🏫 *Sekolah / Instansi:* ${institution}`,
+            `💼 *Peran:* ${role}`,
+            `📍 *Kota/Kabupaten:* ${city}`,
+            `📝 *Catatan Khusus:* ${notes}`,
+            '-------------------------------------------',
+            'Mohon informasi nomor rekening/QRIS untuk pembayaran dan langkah aktivasi bot selanjutnya. Terima kasih!'
+          ];
+
+          const fullMessage = messageLines.join('\n');
+          const encoded = encodeURIComponent(fullMessage);
+          const targetUrl = `https://wa.me/6289676943666?text=${encoded}`;
+
+          // Arahkan ke WhatsApp
+          window.open(targetUrl, '_blank');
+        });
+      }
+    }
+
+    // Jalankan inisialisasi (mendukung transisi view Astro)
+    document.addEventListener('DOMContentLoaded', initCheckout);
+    document.addEventListener('astro:page-load', initCheckout);
+  </script>
+</BaseLayout>

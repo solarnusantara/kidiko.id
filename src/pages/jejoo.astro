@@ -1,0 +1,532 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { visualCardsData, checkoutPlans } from '../data/kidiko';
+import { resolvePath } from '../utils/navigation';
+
+const guruPlan = checkoutPlans['jejoo-guru'];
+const sekolahPlan = checkoutPlans['jejoo-sekolah'];
+const kemitraanPlan = checkoutPlans['jejoo-kemitraan'];
+---
+
+<BaseLayout 
+  title="Jejoo AI — Asisten Riset & Pendamping Guru Pendidikan Inklusif" 
+  description="Jejoo AI membantu guru dan orang tua mendampingi anak neurodivergent (ADHD, ASD, Slow Learner) dengan strategi Positive Behavior Support (PBS), penyusunan PPI, dan 30 Master Kartu Visual di WhatsApp."
+>
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-primary-50/60 via-white to-slate-50 py-20 dark:from-slate-900 dark:via-[#09090b] dark:to-[#09090b]">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-4xl text-center">
+        <div class="inline-flex items-center gap-2 rounded-full border border-primary-200 bg-primary-100/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary-800 shadow-sm dark:border-primary-800/60 dark:bg-primary-950/80 dark:text-primary-300">
+          <span>🧩</span>
+          <span>Pendidikan Inklusif Berbasis AI</span>
+        </div>
+
+        <h1 class="mt-6 text-4xl font-heading font-extrabold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl dark:text-white">
+          Jejoo AI: Asisten Riset & Pendamping Guru Inklusif
+        </h1>
+
+        <p class="mt-6 text-lg leading-8 text-slate-600 sm:text-xl dark:text-slate-300">
+          Pendamping cerdas di WhatsApp untuk guru, GPK (Guru Pendamping Khusus), dan orang tua. Hadir dengan rekomendasi strategi <strong>Positive Behavior Support (PBS)</strong>, penyusunan PPI, dan <strong>30 Kartu Visual Terstruktur</strong> untuk anak ADHD, ASD, dan Slow Learner.
+        </p>
+
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <a 
+            href="#pricing" 
+            class="inline-flex items-center justify-center rounded-xl bg-primary-600 px-6 py-3.5 text-base font-semibold text-white shadow-xl shadow-primary-500/25 transition-all hover:bg-primary-700 hover:scale-105 active:scale-95"
+          >
+            Pilih Paket Langganan
+          </a>
+          <a 
+            href={resolvePath('/downloads/kartu_visual_adhd_pbs.pptx')} 
+            download
+            class="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3.5 text-base font-semibold text-slate-800 shadow-sm transition-all hover:bg-slate-50 hover:border-slate-400 active:scale-95 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700"
+          >
+            <svg class="h-5 w-5 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+            </svg>
+            Unduh 30 Kartu Visual (PPTX)
+          </a>
+          <a 
+            href="https://wa.me/6289676943666?text=Halo%20Admin%20Kidiko,%20saya%20tertarik%20berdiskusi%20dan%20mencoba%20Jejoo%20AI%20untuk%20sekolah/kelas%20inklusi" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-emerald-600/20 transition-all hover:bg-emerald-700 hover:scale-105 active:scale-95"
+          >
+            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+            Konsultasi WhatsApp Admin
+          </a>
+        </div>
+
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500 dark:text-slate-400">
+          <div class="flex items-center gap-1.5">
+            <span class="text-emerald-500 font-bold">✓</span> Berbasis Positive Behavior Support (PBS)
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="text-emerald-500 font-bold">✓</span> Didukung Tenaga Ahli Doktoral Inklusi
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="text-emerald-500 font-bold">✓</span> 100% Berjalan di WhatsApp
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: 30 Visual Cards Showcase (3 Levels) -->
+  <section id="kartu-visual" class="border-y border-slate-200 bg-white py-20 dark:border-slate-800 dark:bg-[#09090b]">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-wider text-primary-700 dark:text-primary-300">
+          Alat Bantu Visual Kelas
+        </p>
+        <h2 class="mt-3 text-3xl font-heading font-extrabold text-slate-950 sm:text-4xl dark:text-white">
+          30 Paket Kartu Visual ADHD & PBS (3-Level)
+        </h2>
+        <p class="mt-4 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          Dirancang untuk memberikan instruksi konkret, positif, dan terstruktur tanpa membebani memori kerja anak berkebutuhan khusus. Dilengkapi master PowerPoint yang dapat diedit bebas dan dicetak.
+        </p>
+      </div>
+
+      <!-- Level 1: Preventif (Hijau) -->
+      <div class="mt-16">
+        <div class="flex items-center gap-3 border-b-2 border-emerald-500 pb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-100 text-lg font-bold text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">1</span>
+          <div>
+            <h3 class="text-xl font-bold text-slate-950 dark:text-white">🟢 Level 1 — Preventif & Rutinitas Belajar (10 Kartu)</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">Border Hijau/Teal • Menumbuhkan fokus, kepatuhan instruksi, dan transisi belajar tertib.</p>
+          </div>
+        </div>
+        <div class="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+          {visualCardsData.level1.map((card) => (
+            <div class="rounded-xl border-2 border-emerald-200 bg-emerald-50/40 p-4 transition-all hover:-translate-y-1 hover:border-emerald-500 hover:shadow-md dark:border-emerald-900/50 dark:bg-emerald-950/20">
+              <div class="flex items-center justify-between">
+                <span class="text-2xl">{card.icon}</span>
+                <span class="rounded-md bg-emerald-200 px-2 py-0.5 text-xs font-bold text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">#{card.number}</span>
+              </div>
+              <h4 class="mt-3 font-bold text-slate-900 dark:text-white">{card.title}</h4>
+              <p class="mt-1.5 text-xs leading-relaxed text-slate-600 dark:text-slate-300">{card.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Level 2: Regulasi Emosi (Kuning) -->
+      <div class="mt-14">
+        <div class="flex items-center gap-3 border-b-2 border-amber-500 pb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-100 text-lg font-bold text-amber-800 dark:bg-amber-950 dark:text-amber-300">2</span>
+          <div>
+            <h3 class="text-xl font-bold text-slate-950 dark:text-white">🟡 Level 2 — Regulasi Emosi & Sensorik (10 Kartu)</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">Border Kuning/Amber • Meredakan kelelahan, sensory overload, dan kecemasan anak.</p>
+          </div>
+        </div>
+        <div class="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+          {visualCardsData.level2.map((card) => (
+            <div class="rounded-xl border-2 border-amber-200 bg-amber-50/40 p-4 transition-all hover:-translate-y-1 hover:border-amber-500 hover:shadow-md dark:border-amber-900/50 dark:bg-amber-950/20">
+              <div class="flex items-center justify-between">
+                <span class="text-2xl">{card.icon}</span>
+                <span class="rounded-md bg-amber-200 px-2 py-0.5 text-xs font-bold text-amber-800 dark:bg-amber-900 dark:text-amber-200">#{card.number}</span>
+              </div>
+              <h4 class="mt-3 font-bold text-slate-900 dark:text-white">{card.title}</h4>
+              <p class="mt-1.5 text-xs leading-relaxed text-slate-600 dark:text-slate-300">{card.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Level 3: De-eskalasi Krisis (Merah) -->
+      <div class="mt-14">
+        <div class="flex items-center gap-3 border-b-2 border-rose-500 pb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-rose-100 text-lg font-bold text-rose-800 dark:bg-rose-950 dark:text-rose-300">3</span>
+          <div>
+            <h3 class="text-xl font-bold text-slate-950 dark:text-white">🔴 Level 3 — De-eskalasi Krisis & Keamanan (10 Kartu)</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">Border Merah/Rose • Protokol 'Safety First' saat terjadi agresi atau perilaku krisis siswa.</p>
+          </div>
+        </div>
+        <div class="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+          {visualCardsData.level3.map((card) => (
+            <div class="rounded-xl border-2 border-rose-200 bg-rose-50/40 p-4 transition-all hover:-translate-y-1 hover:border-rose-500 hover:shadow-md dark:border-rose-900/50 dark:bg-rose-950/20">
+              <div class="flex items-center justify-between">
+                <span class="text-2xl">{card.icon}</span>
+                <span class="rounded-md bg-rose-200 px-2 py-0.5 text-xs font-bold text-rose-800 dark:bg-rose-900 dark:text-rose-200">#{card.number}</span>
+              </div>
+              <h4 class="mt-3 font-bold text-slate-900 dark:text-white">{card.title}</h4>
+              <p class="mt-1.5 text-xs leading-relaxed text-slate-600 dark:text-slate-300">{card.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Format Khusus & Download CTA Box -->
+      <div class="mt-14 rounded-2xl border border-primary-200 bg-gradient-to-r from-primary-50 to-blue-50 p-8 dark:border-primary-900/50 dark:from-primary-950/40 dark:to-slate-900">
+        <div class="grid gap-8 md:grid-cols-2">
+          <div>
+            <h4 class="text-xl font-bold text-slate-950 dark:text-white">⭐ Format Khusus Tambahan</h4>
+            <div class="mt-4 space-y-3 text-sm text-slate-700 dark:text-slate-300">
+              <div class="rounded-xl bg-white/80 p-3.5 shadow-sm dark:bg-slate-800/80">
+                <strong>1. Papan Visual First–Then (Pertama – Lalu):</strong>
+                <p class="mt-1 text-xs text-slate-600 dark:text-slate-400">Memisahkan tugas (1️⃣ First: 3 soal) dengan hadiah jeda (2️⃣ Then: Main Lego 5 menit) untuk memotivasi anak secara positif.</p>
+              </div>
+              <div class="rounded-xl bg-white/80 p-3.5 shadow-sm dark:bg-slate-800/80">
+                <strong>2. Meteran Suara Kelas (Voice Level Meter):</strong>
+                <p class="mt-1 text-xs text-slate-600 dark:text-slate-400">Panduan 4 tingkat suara konkret (Suara 0: Hening, Suara 1: Berbisik, Suara 2: Diskusi Meja, Suara 3: Presentasi Luar).</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col justify-center rounded-xl bg-white p-6 shadow-sm dark:bg-slate-800">
+            <h4 class="text-lg font-bold text-slate-950 dark:text-white">Unduh Master File & Panduan Guru</h4>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+              Dapatkan file PowerPoint (.pptx) lengkap dengan 30 kartu editable, rasio cetak A4 (grid 2x2), siap laminasi untuk meja siswa.
+            </p>
+            <div class="mt-6 flex flex-col gap-3">
+              <a 
+                href={resolvePath('/downloads/kartu_visual_adhd_pbs.pptx')} 
+                download
+                class="inline-flex items-center justify-center gap-2 rounded-xl bg-primary-600 px-5 py-3 text-sm font-semibold text-white shadow-md hover:bg-primary-700 transition-colors"
+              >
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                Unduh Master Kartu Visual (PPTX ~236 KB)
+              </a>
+              <a 
+                href={resolvePath('/downloads/profil_jejoo_ai.pptx')} 
+                download
+                class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors dark:border-slate-600 dark:bg-slate-700 dark:text-white"
+              >
+                Unduh Slide Profil Lengkap Jejoo (PPTX)
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: AI Capabilities / Pillars -->
+  <section class="bg-slate-50 py-20 dark:bg-slate-950">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-wider text-primary-700 dark:text-primary-300">
+          Teknologi AI yang Membumi
+        </p>
+        <h2 class="mt-3 text-3xl font-heading font-extrabold text-slate-950 sm:text-4xl dark:text-white">
+          Mengapa Jejoo AI Berbeda untuk Guru Inklusi?
+        </h2>
+        <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
+          Dirancang khusus untuk dunia pendidikan khusus, bukan sekadar chatbot umum biasa.
+        </p>
+      </div>
+
+      <div class="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-100 text-2xl dark:bg-primary-950">
+            🎯
+          </div>
+          <h3 class="mt-5 text-xl font-bold text-slate-950 dark:text-white">Asisten PPI Terstruktur</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            Membantu merumuskan Program Pembelajaran Individual (PPI) berdasarkan kondisi spesifik siswa, modalitas belajar, dan tingkat kemandirian anak.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-100 text-2xl dark:bg-primary-950">
+            📚
+          </div>
+          <h3 class="mt-5 text-xl font-bold text-slate-950 dark:text-white">RAG Riset & Modul Sekolah</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            Jawaban didasarkan pada literatur ilmiah pendidikan inklusif terpercaya, serta dapat dihubungkan dengan modul dan kurikulum internal sekolah Anda.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-100 text-2xl dark:bg-primary-950">
+            📊
+          </div>
+          <h3 class="mt-5 text-xl font-bold text-slate-950 dark:text-white">Diagram Alur Visual (Mermaid)</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            Jejoo dapat menyusun flowchart strategi penanganan krisis dan peta konsep yang mudah dipahami guru saat berdiskusi di grup WhatsApp.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-100 text-2xl dark:bg-primary-950">
+            👥
+          </div>
+          <h3 class="mt-5 text-xl font-bold text-slate-950 dark:text-white">Kolaboratif di Grup WhatsApp</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            Bekerja di dalam grup WA guru pendamping dan wali murid sehingga seluruh tim pengajar memiliki satu persepsi dalam menangani perilaku anak.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-100 text-2xl dark:bg-primary-950">
+            🛡️
+          </div>
+          <h3 class="mt-5 text-xl font-bold text-slate-950 dark:text-white">Bahasa Empati & Aman</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            Menggunakan tone komunikasi yang sabar, konstruktif, dan mematuhi batas privasi data sensitif siswa dan rekam medis.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-100 text-2xl dark:bg-primary-950">
+            👩‍⚕️
+          </div>
+          <h3 class="mt-5 text-xl font-bold text-slate-950 dark:text-white">Rujukan ke Ahli Nyata</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            Jika kasus melampaui kapasitas AI, bot langsung memberikan rekomendasi kontak tenaga ahli pendidikan khusus dan psikolog inklusi mitra.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Experts Profile -->
+  <section class="border-y border-slate-200 bg-white py-20 dark:border-slate-800 dark:bg-[#09090b]">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-wider text-primary-700 dark:text-primary-300">
+          Kredibilitas Akademik & Praktisi
+        </p>
+        <h2 class="mt-3 text-3xl font-heading font-extrabold text-slate-950 sm:text-4xl dark:text-white">
+          Didampingi Tenaga Ahli Pendidikan Inklusif
+        </h2>
+        <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
+          Seluruh panduan, basis data perilaku, dan kartu visual Jejoo dikurasi langsung oleh akademisi dan praktisi pendidikan khusus terkemuka.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+        <div class="flex flex-col rounded-2xl border border-slate-200 bg-slate-50/50 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+          <div class="flex items-center gap-4">
+            <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-primary-600 text-2xl font-bold text-white shadow-lg shadow-primary-500/30">
+              I
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-slate-950 dark:text-white">Dr. Istiarsyah, Ph.D</h3>
+              <p class="text-sm font-semibold text-primary-700 dark:text-primary-400">Ahli Pendidikan Khusus & Inklusi</p>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Konsultan Riset & Pengembangan Perilaku</p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            Peneliti dan pakar pendidikan inklusif dengan pengalaman mendalam dalam intervensi perilaku positif (PBS), kurikulum akomodatif, dan pembinaan guru sekolah inklusi di berbagai daerah di Indonesia.
+          </p>
+        </div>
+
+        <div class="flex flex-col rounded-2xl border border-slate-200 bg-slate-50/50 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+          <div class="flex items-center gap-4">
+            <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-amber-600 text-2xl font-bold text-white shadow-lg shadow-amber-500/30">
+              D
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-slate-950 dark:text-white">Ibu Dyah, M.Psi</h3>
+              <p class="text-sm font-semibold text-amber-700 dark:text-amber-400">Psikolog Pendidikan Inklusif</p>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Spesialis Perkembangan Anak Neurodivergent</p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            Praktisi psikologi yang fokus pada asesmen tumbuh kembang anak, regulasi sensori-emosi, dan pendampingan orang tua anak dengan kebutuhan khusus (ADHD, ASD, dan hambatan belajar).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Pricing Tables -->
+  <section id="pricing" class="bg-slate-50 py-20 dark:bg-slate-950">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-wider text-primary-700 dark:text-primary-300">
+          Pilihan Paket Berlangganan
+        </p>
+        <h2 class="mt-3 text-3xl font-heading font-extrabold text-slate-950 sm:text-4xl dark:text-white">
+          Investasi Terjangkau untuk Masa Depan Siswa Inklusi
+        </h2>
+        <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
+          Pilih paket yang paling sesuai dengan kebutuhan kelas, sekolah, atau yayasan pendidikan Anda.
+        </p>
+      </div>
+
+      <div class="mt-14 grid gap-8 lg:grid-cols-3 max-w-6xl mx-auto">
+        <!-- Paket Guru Mandiri -->
+        <div class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
+          <div>
+            <span class="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-800 dark:bg-slate-800 dark:text-slate-200">
+              {guruPlan.badge}
+            </span>
+            <h3 class="mt-4 text-2xl font-bold text-slate-950 dark:text-white">{guruPlan.name}</h3>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">{guruPlan.description}</p>
+            
+            <div class="mt-6 flex items-baseline">
+              <span class="text-4xl font-extrabold tracking-tight text-slate-950 dark:text-white">{guruPlan.price}</span>
+              <span class="ml-1 text-sm font-semibold text-slate-500 dark:text-slate-400">{guruPlan.period}</span>
+            </div>
+            <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">{guruPlan.capacity}</p>
+
+            <ul class="mt-6 space-y-3 text-sm text-slate-700 dark:text-slate-300 border-t border-slate-100 pt-6 dark:border-slate-800">
+              {guruPlan.features.map((feat) => (
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-500 font-bold shrink-0">✓</span>
+                  <span>{feat}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <a 
+            href={resolvePath(`/checkout/?plan=${guruPlan.id}`)}
+            class="mt-8 block w-full rounded-xl border border-slate-300 bg-white py-3 text-center text-sm font-semibold text-slate-900 shadow-sm transition-all hover:bg-slate-50 active:scale-95 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700"
+          >
+            Pilih Paket Guru
+          </a>
+        </div>
+
+        <!-- Paket Sekolah Inklusi Pro (Featured) -->
+        <div class="relative flex flex-col justify-between rounded-2xl border-2 border-primary-500 bg-white p-8 shadow-xl shadow-primary-500/10 dark:bg-slate-900">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary-600 px-4 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-md">
+            ⭐ {sekolahPlan.badge}
+          </div>
+          <div>
+            <span class="inline-flex rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-700 dark:bg-primary-950/60 dark:text-primary-300">
+              Solusi Lengkap SPPI
+            </span>
+            <h3 class="mt-4 text-2xl font-bold text-slate-950 dark:text-white">{sekolahPlan.name}</h3>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">{sekolahPlan.description}</p>
+            
+            <div class="mt-6 flex items-baseline">
+              <span class="text-4xl font-extrabold tracking-tight text-primary-600 dark:text-primary-400">{sekolahPlan.price}</span>
+              <span class="ml-1 text-sm font-semibold text-slate-500 dark:text-slate-400">{sekolahPlan.period}</span>
+            </div>
+            <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">{sekolahPlan.capacity}</p>
+
+            <ul class="mt-6 space-y-3 text-sm text-slate-700 dark:text-slate-300 border-t border-slate-100 pt-6 dark:border-slate-800">
+              {sekolahPlan.features.map((feat) => (
+                <li class="flex items-start gap-2.5">
+                  <span class="text-primary-600 font-bold shrink-0">✓</span>
+                  <span>{feat}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <a 
+            href={resolvePath(`/checkout/?plan=${sekolahPlan.id}`)}
+            class="mt-8 block w-full rounded-xl bg-primary-600 py-3.5 text-center text-sm font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-700 hover:scale-[1.02] active:scale-95"
+          >
+            Pilih Paket Sekolah Pro
+          </a>
+        </div>
+
+        <!-- Paket Kemitraan Khusus -->
+        <div class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
+          <div>
+            <span class="inline-flex rounded-full bg-purple-50 px-3 py-1 text-xs font-semibold text-purple-700 dark:bg-purple-950/60 dark:text-purple-300">
+              {kemitraanPlan.badge}
+            </span>
+            <h3 class="mt-4 text-2xl font-bold text-slate-950 dark:text-white">{kemitraanPlan.name}</h3>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">{kemitraanPlan.description}</p>
+            
+            <div class="mt-6 flex items-baseline">
+              <span class="text-4xl font-extrabold tracking-tight text-slate-950 dark:text-white">{kemitraanPlan.price}</span>
+            </div>
+            <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">{kemitraanPlan.capacity}</p>
+
+            <ul class="mt-6 space-y-3 text-sm text-slate-700 dark:text-slate-300 border-t border-slate-100 pt-6 dark:border-slate-800">
+              {kemitraanPlan.features.map((feat) => (
+                <li class="flex items-start gap-2.5">
+                  <span class="text-purple-600 font-bold shrink-0">✓</span>
+                  <span>{feat}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <a 
+            href={resolvePath(`/checkout/?plan=${kemitraanPlan.id}`)}
+            class="mt-8 block w-full rounded-xl border border-slate-300 bg-white py-3 text-center text-sm font-semibold text-slate-900 shadow-sm transition-all hover:bg-slate-50 active:scale-95 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700"
+          >
+            Ajukan Kemitraan Khusus
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: FAQ -->
+  <section class="border-t border-slate-200 bg-white py-20 dark:border-slate-800 dark:bg-[#09090b]">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-wider text-primary-700 dark:text-primary-300">
+          FAQ
+        </p>
+        <h2 class="mt-3 text-3xl font-heading font-extrabold text-slate-950 sm:text-4xl dark:text-white">
+          Pertanyaan yang Sering Diajukan
+        </h2>
+      </div>
+
+      <div class="mt-12 max-w-3xl mx-auto space-y-4">
+        <details class="group rounded-xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-900">
+          <summary class="flex cursor-pointer items-center justify-between font-bold text-slate-950 dark:text-white">
+            <span>Bagaimana cara kerja Jejoo AI di WhatsApp?</span>
+            <span class="transition-transform group-open:rotate-180">▾</span>
+          </summary>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            Setelah berlangganan diaktifkan, nomor WhatsApp resmi Jejoo akan dihubungkan ke grup WhatsApp kelas atau nomor pribadi Anda. Guru atau pendamping cukup mengetik pertanyaan atau kendala siswa, dan Jejoo akan memberikan respon terstruktur dan strategi praktis.
+          </p>
+        </details>
+
+        <details class="group rounded-xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-900">
+          <summary class="flex cursor-pointer items-center justify-between font-bold text-slate-950 dark:text-white">
+            <span>Apakah guru atau sekolah harus menginstal aplikasi baru?</span>
+            <span class="transition-transform group-open:rotate-180">▾</span>
+          </summary>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            Tidak sama sekali! Seluruh interaksi langsung berjalan di aplikasi WhatsApp yang sudah biasa dipakai sehari-hari, sehingga sangat ramah untuk guru di sekolah dengan sarana terbatas sekalipun.
+          </p>
+        </details>
+
+        <details class="group rounded-xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-900">
+          <summary class="flex cursor-pointer items-center justify-between font-bold text-slate-950 dark:text-white">
+            <span>Apakah sekolah bisa memasukkan kurikulum dan modul sendiri?</span>
+            <span class="transition-transform group-open:rotate-180">▾</span>
+          </summary>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            Ya! Pada Paket Sekolah Inklusi Pro dan Kemitraan, kami menyediakan fitur RAG (Retrieval-Augmented Generation) sehingga dokumen aturan sekolah, panduan asesmen, dan modul ajar lokal dapat diunggah agar rujukan bot selalu selaras dengan kebijakan sekolah Anda.
+          </p>
+        </details>
+
+        <details class="group rounded-xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-900">
+          <summary class="flex cursor-pointer items-center justify-between font-bold text-slate-950 dark:text-white">
+            <span>Bagaimana cara mengunduh dan mencetak 30 Kartu Visual?</span>
+            <span class="transition-transform group-open:rotate-180">▾</span>
+          </summary>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            Anda bisa langsung mengklik tombol "Unduh 30 Kartu Visual (PPTX)" di atas secara gratis. Buka file di Microsoft PowerPoint atau Google Slides, sesuaikan teks/nama anak bila perlu, lalu cetak pada kertas tebal (Art Paper 230-260 gsm) ukuran A4 dan beri laminasi.
+          </p>
+        </details>
+      </div>
+
+      <!-- Final Bottom CTA -->
+      <div class="mt-16 text-center">
+        <h3 class="text-2xl font-bold text-slate-950 dark:text-white">Siap menghadirkan pendampingan inklusif terbaik di kelas Anda?</h3>
+        <p class="mt-2 text-slate-600 dark:text-slate-400">Tim kami siap membantu instalasi dan penyesuaian kebutuhan sekolah Anda.</p>
+        <div class="mt-6 flex flex-wrap justify-center gap-4">
+          <a 
+            href={resolvePath(`/checkout/?plan=jejoo-sekolah`)}
+            class="rounded-xl bg-primary-600 px-6 py-3 font-semibold text-white shadow-lg hover:bg-primary-700 transition-colors"
+          >
+            Mulai Berlangganan Sekarang
+          </a>
+          <a 
+            href="https://wa.me/6289676943666?text=Halo%20Admin%20Kidiko,%20saya%20ingin%20konsultasi%20mengenai%20Jejoo%20AI" 
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-xl border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 shadow-sm hover:bg-slate-50 transition-colors dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+          >
+            Konsultasi dengan Admin
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

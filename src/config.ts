@@ -22,6 +22,7 @@ export const NAV_LINKS = [
   { href: '/tentang/', label: 'Tentang' },
   { href: '/impact/', label: 'Impact' },
   { href: '/penawaran/', label: 'Penawaran' },
+  { href: '/jejoo/', label: 'Jejoo AI' },
   { href: '/toefl-itp/', label: 'TOEFL ITP' },
   { href: '/kontak/', label: 'Kontak' },
 ];
@@ -31,6 +32,7 @@ export const FOOTER_LINKS = [
   {
     title: 'Product',
     links: [
+      { label: 'Jejoo AI (Inklusi)', href: '/jejoo/' },
       { label: 'Paket AI', href: '/product-category/paket-ai/' },
       { label: 'Toko', href: '/toko/' },
       { label: 'Penawaran', href: '/penawaran/' },
