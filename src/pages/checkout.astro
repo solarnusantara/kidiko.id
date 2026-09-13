@@ -3,7 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { checkoutPlans } from '../data/kidiko';
 import { resolvePath } from '../utils/navigation';
 
-const plansList = Object.values(checkoutPlans);
+// Ambil list unik berdasarkan id paket agar dropdown tidak menduplikasi alias
+const uniquePlans = Array.from(
+  new Map(Object.values(checkoutPlans).map((p) => [p.id, p])).values()
+);
 ---
 
 <BaseLayout
@@ -15,13 +18,13 @@ const plansList = Object.values(checkoutPlans);
       <!-- Breadcrumb / Back Link -->
       <div class="mb-8">
         <a 
-          href={resolvePath('/jejoo/')} 
+          href={resolvePath('/toko/')} 
           class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-700 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300 transition-colors"
         >
           <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
           </svg>
-          Kembali ke Halaman Jejoo AI
+          Lihat Semua Pilihan Paket di Toko
         </a>
       </div>
 
@@ -56,7 +59,7 @@ const plansList = Object.values(checkoutPlans);
                 required
                 class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
               >
-                {plansList.map((p) => (
+                {uniquePlans.map((p) => (
                   <option value={p.id}>
                     {p.name} — {p.price} {p.period}
                   </option>
@@ -243,20 +246,32 @@ const plansList = Object.values(checkoutPlans);
 
       // Ambil parameter '?plan=...' dari URL
       const urlParams = new URLSearchParams(window.location.search);
-      let selectedPlanKey = urlParams.get('plan') || 'jejoo-sekolah';
+      const rawParam = (urlParams.get('plan') || '').trim();
 
-      // Validasi apakah plan ada di data, jika tidak fallback ke 'jejoo-sekolah'
-      if (!plansData[selectedPlanKey]) {
-        selectedPlanKey = 'jejoo-sekolah';
+      // Cari plan dari data langsung atau alias
+      let resolvedPlan = plansData[rawParam];
+      if (!resolvedPlan && rawParam) {
+        // Coba cari key yang cocok / substring
+        const foundKey = Object.keys(plansData).find(
+          (k) => k.toLowerCase() === rawParam.toLowerCase() || k.includes(rawParam.toLowerCase())
+        );
+        if (foundKey) resolvedPlan = plansData[foundKey];
       }
+
+      // Fallback jika tidak ditemukan
+      if (!resolvedPlan) {
+        resolvedPlan = plansData['jejoo-sekolah-inklusi-pro'] || plansData['jejoo-sekolah'];
+      }
+
+      const activePlanId = resolvedPlan.id;
 
       // Update dropdown ke nilai yang sesuai
       if (planSelect) {
-        planSelect.value = selectedPlanKey;
+        planSelect.value = activePlanId;
       }
 
       function updateSummary(planKey) {
-        const plan = plansData[planKey] || plansData['jejoo-sekolah'];
+        const plan = plansData[planKey] || resolvedPlan;
         if (!plan) return;
 
         if (summaryName) summaryName.textContent = plan.name;
@@ -278,7 +293,7 @@ const plansList = Object.values(checkoutPlans);
       }
 
       // Render pertama kali
-      updateSummary(selectedPlanKey);
+      updateSummary(activePlanId);
 
       // Listener ketika pengguna mengganti paket di dropdown
       if (planSelect) {
@@ -292,7 +307,7 @@ const plansList = Object.values(checkoutPlans);
         form.addEventListener('submit', (e) => {
           e.preventDefault();
 
-          const selectedPlan = plansData[planSelect ? planSelect.value : 'jejoo-sekolah'];
+          const selectedPlan = plansData[planSelect ? planSelect.value : activePlanId] || resolvedPlan;
           const fullName = document.getElementById('full-name')?.value.trim() || '';
           let waNumber = document.getElementById('wa-number')?.value.trim() || '';
           const institution = document.getElementById('institution')?.value.trim() || '';

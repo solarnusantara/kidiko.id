@@ -162,24 +162,9 @@ export interface PlanDetail {
 }
 
 export const checkoutPlans: Record<string, PlanDetail> = {
-  'jejoo-guru': {
-    id: 'jejoo-guru',
-    name: 'Jejoo AI — Guru Mandiri',
-    category: 'Pendidikan Inklusif',
-    price: 'Rp 99.000',
-    period: '/bulan',
-    badge: 'Starter Inklusi',
-    description: 'Akses asisten AI riset pendidikan inklusi di WhatsApp untuk guru pendamping atau orang tua.',
-    capacity: '1 Grup WA / Penggunaan Personal',
-    features: [
-      'Akses Bot WA Jejoo responsif 24/7',
-      'Unduh 30 Master Kartu Visual PPTX Editable',
-      'Panduan strategi instruksi ramah ADHD & ASD',
-      'Akses direktori rujukan konsultasi tenaga ahli',
-    ],
-  },
-  'jejoo-sekolah': {
-    id: 'jejoo-sekolah',
+  // --- PRODUK JEJOO AI (PENDIDIKAN INKLUSIF) ---
+  'jejoo-sekolah-inklusi-pro': {
+    id: 'jejoo-sekolah-inklusi-pro',
     name: 'Jejoo AI — Sekolah Inklusi Pro',
     category: 'Pendidikan Inklusif',
     price: 'Rp 499.000',
@@ -195,8 +180,24 @@ export const checkoutPlans: Record<string, PlanDetail> = {
       'Prioritas rujukan konsultasi Dr. Istiarsyah & Ibu Dyah',
     ],
   },
-  'jejoo-kemitraan': {
-    id: 'jejoo-kemitraan',
+  'jejoo-guru-mandiri': {
+    id: 'jejoo-guru-mandiri',
+    name: 'Jejoo AI — Guru Mandiri',
+    category: 'Pendidikan Inklusif',
+    price: 'Rp 99.000',
+    period: '/bulan',
+    badge: 'Starter Inklusi',
+    description: 'Akses asisten AI riset pendidikan inklusi di WhatsApp untuk guru pendamping atau orang tua.',
+    capacity: '1 Grup WA / Penggunaan Personal',
+    features: [
+      'Akses Bot WA Jejoo responsif 24/7',
+      'Unduh 30 Master Kartu Visual PPTX Editable',
+      'Panduan strategi instruksi ramah ADHD & ASD',
+      'Akses direktori rujukan konsultasi tenaga ahli',
+    ],
+  },
+  'jejoo-kemitraan-khusus': {
+    id: 'jejoo-kemitraan-khusus',
     name: 'Jejoo AI — Kemitraan Dinas & Yayasan',
     category: 'Pendidikan Inklusif',
     price: 'Kemitraan Kustom',
@@ -211,37 +212,144 @@ export const checkoutPlans: Record<string, PlanDetail> = {
       'Dukungan prioritas & penyesuaian model AI khusus',
     ],
   },
-  'toefl-itp': {
-    id: 'toefl-itp',
-    name: 'TOEFL ITP Kidiko',
-    category: 'Bahasa & Ujian',
-    price: 'Hubungi Kami',
-    period: '',
-    description: 'Pendamping latihan TOEFL ITP berbasis AI untuk drilling vocabulary, grammar, reading, dan pembahasan.',
-    capacity: 'Program latihan terarah',
-    features: ['Latihan bertahap', 'Pembahasan jawaban', 'Materi memakai RAG', 'Rekap progres peserta'],
-  },
-  'paket-keluarga-dika': {
-    id: 'paket-keluarga-dika',
+
+  // --- PRODUK KIDIKO UMUM (KELUARGA, KELAS, KOMUNITAS, TOEFL) ---
+  'paket-keluarga-grup-wa-dika-maksimal-5-peserta': {
+    id: 'paket-keluarga-grup-wa-dika-maksimal-5-peserta',
     name: 'Paket Keluarga Grup WA Dika',
     category: 'Keluarga',
-    price: 'Hubungi Kami',
+    price: 'Konsultasi Penawaran',
     period: '',
-    description: 'AI pendamping belajar untuk keluarga dengan kontrol orang tua atau pendamping.',
+    badge: 'Keluarga Mandiri',
+    description: 'AI pendamping belajar untuk keluarga dengan kontrol orang tua atau pendamping agar anak tetap bertanya dan belajar secara aman.',
     capacity: 'Maksimal 5 peserta',
-    features: ['Grup keluarga', 'Moderasi prompt', 'Ringkasan aktivitas', 'Bahan belajar keluarga'],
+    features: [
+      'Grup belajar keluarga di WhatsApp',
+      'Moderasi prompt ramah anak',
+      'Ringkasan aktivitas harian untuk orang tua',
+      'Materi bahan belajar keluarga',
+    ],
   },
-  'paket-kelas-diko': {
-    id: 'paket-kelas-diko',
-    name: 'Paket Kelas Grup WA Diko',
-    category: 'Sekolah & Bimbel',
-    price: 'Hubungi Kami',
+  'paket-keluarga-grup-wa-diko-maksimal-5-peserta': {
+    id: 'paket-keluarga-grup-wa-diko-maksimal-5-peserta',
+    name: 'Paket Keluarga Grup WA Diko',
+    category: 'Keluarga',
+    price: 'Konsultasi Penawaran',
     period: '',
-    description: 'AI kelas di grup WhatsApp untuk membantu menjawab pertanyaan siswa dan merujuk materi kelas.',
+    badge: 'Keluarga Terpantau',
+    description: 'Paket grup WhatsApp untuk mendampingi rutinitas belajar harian anak, tanya jawab, dan latihan mandiri dengan pengawasan.',
+    capacity: 'Maksimal 5 peserta',
+    features: [
+      'Respons AI terkendali & terpantau wali',
+      'Pendampingan tugas harian di WA',
+      'Cocok untuk jaringan sinyal terbatas',
+      'Evaluasi pemahaman konsep belajar anak',
+    ],
+  },
+  'paket-kawan-grup-wa-diki-maksimal-5-peserta': {
+    id: 'paket-kawan-grup-wa-diki-maksimal-5-peserta',
+    name: 'Paket Kawan Grup WA Diki',
+    category: 'Kelompok Belajar',
+    price: 'Konsultasi Penawaran',
+    period: '',
+    badge: 'Peer Learning',
+    description: 'Paket untuk teman belajar yang ingin berdiskusi, bertanya ke AI, dan tetap menjaga diskusi sosial di dalam grup.',
+    capacity: 'Maksimal 5 peserta',
+    features: [
+      'Diskusi kelompok sebaya (peer learning)',
+      'AI bertindak sebagai fasilitator diskusi',
+      'Batasan topik aman dan edukatif',
+      'Latihan soal kolaboratif di grup WA',
+    ],
+  },
+  'paket-kelas-grup-wa-diko-maksimal-50-peserta': {
+    id: 'paket-kelas-grup-wa-diko-maksimal-50-peserta',
+    name: 'Paket Kelas Grup WA Diko',
+    category: 'Kelas Sekolah & Bimbel',
+    price: 'Konsultasi Penawaran',
+    period: '',
+    badge: 'Kelas Aktif',
+    description: 'AI kelas di grup WhatsApp untuk membantu menjawab pertanyaan siswa, merujuk materi kelas, dan memberi guru ruang untuk memvalidasi jawaban.',
     capacity: 'Maksimal 50 peserta',
-    features: ['Dashboard guru', 'RAG dari materi kelas', 'Moderasi keamanan', 'Rekap aktivitas siswa'],
+    features: [
+      'Dashboard guru & rekap interaksi siswa',
+      'RAG terintegrasi dari materi & silabus kelas',
+      'Moderasi keamanan prompt ketat',
+      'Membantu menangani pertanyaan berulang',
+    ],
+  },
+  'paket-kelas-grup-wa-dika-maksimal-50-peserta': {
+    id: 'paket-kelas-grup-wa-dika-maksimal-50-peserta',
+    name: 'Paket Kelas Grup WA Dika',
+    category: 'Kelas Besar',
+    price: 'Konsultasi Penawaran',
+    period: '',
+    badge: 'Kelas Interaktif',
+    description: 'Pendamping AI untuk kelas aktif, membantu guru mengelola pertanyaan yang berulang dan menjaga siswa tetap berinteraksi.',
+    capacity: 'Maksimal 50 peserta',
+    features: [
+      'Validasi jawaban oleh guru',
+      'Catatan & rekap aktivitas siswa',
+      'Kontrol topik pembelajaran',
+      'Pemakaian sangat ringan di jaringan rendah',
+    ],
+  },
+  'paket-komunitas-grup-wa-diki-maksimal-50-peserta': {
+    id: 'paket-komunitas-grup-wa-diki-maksimal-50-peserta',
+    name: 'Paket Komunitas Grup WA Diki',
+    category: 'Komunitas Pendidikan',
+    price: 'Konsultasi Penawaran',
+    period: '',
+    badge: 'Komunitas Belajar',
+    description: 'Paket untuk komunitas pendidikan yang membutuhkan AI penjawab, kurasi materi, dan moderasi agar diskusi tetap sehat.',
+    capacity: 'Maksimal 50 peserta',
+    features: [
+      'Basis pengetahuan komunitas (custom RAG)',
+      'Moderasi percakapan otomatis',
+      'Ringkasan diskusi berkala',
+      'Dukungan grup interaktif 24/7',
+    ],
+  },
+  'toefl-itp-kidiko': {
+    id: 'toefl-itp-kidiko',
+    name: 'TOEFL ITP Kidiko',
+    category: 'Bahasa & Ujian',
+    price: 'Konsultasi Penawaran',
+    period: '',
+    badge: 'Drilling Test',
+    description: 'Pendamping latihan TOEFL ITP berbasis AI untuk drilling vocabulary, grammar, reading, dan pembahasan yang bisa diakses lewat grup WhatsApp.',
+    capacity: 'Program latihan terarah',
+    features: [
+      'Latihan bertahap & pembahasan jawaban detail',
+      'Drilling Structure, Written Expression & Reading',
+      'Materi terstruktur memakai basis RAG',
+      'Rekap progres peningkatan skor peserta',
+    ],
   },
 };
+
+// --- ALIASES UNTUK KEMUDAHAN QUERY PARAMS ---
+checkoutPlans['jejoo-sekolah'] = checkoutPlans['jejoo-sekolah-inklusi-pro'];
+checkoutPlans['jejoo-guru'] = checkoutPlans['jejoo-guru-mandiri'];
+checkoutPlans['jejoo-kemitraan'] = checkoutPlans['jejoo-kemitraan-khusus'];
+checkoutPlans['toefl-itp'] = checkoutPlans['toefl-itp-kidiko'];
+checkoutPlans['toefl'] = checkoutPlans['toefl-itp-kidiko'];
+checkoutPlans['dika'] = checkoutPlans['paket-keluarga-grup-wa-dika-maksimal-5-peserta'];
+checkoutPlans['paket-dika'] = checkoutPlans['paket-keluarga-grup-wa-dika-maksimal-5-peserta'];
+checkoutPlans['paket-keluarga-dika'] = checkoutPlans['paket-keluarga-grup-wa-dika-maksimal-5-peserta'];
+checkoutPlans['diko'] = checkoutPlans['paket-keluarga-grup-wa-diko-maksimal-5-peserta'];
+checkoutPlans['paket-diko'] = checkoutPlans['paket-keluarga-grup-wa-diko-maksimal-5-peserta'];
+checkoutPlans['paket-keluarga-diko'] = checkoutPlans['paket-keluarga-grup-wa-diko-maksimal-5-peserta'];
+checkoutPlans['diki'] = checkoutPlans['paket-kawan-grup-wa-diki-maksimal-5-peserta'];
+checkoutPlans['paket-diki'] = checkoutPlans['paket-kawan-grup-wa-diki-maksimal-5-peserta'];
+checkoutPlans['paket-kawan-diki'] = checkoutPlans['paket-kawan-grup-wa-diki-maksimal-5-peserta'];
+checkoutPlans['kelas-diko'] = checkoutPlans['paket-kelas-grup-wa-diko-maksimal-50-peserta'];
+checkoutPlans['paket-kelas-diko'] = checkoutPlans['paket-kelas-grup-wa-diko-maksimal-50-peserta'];
+checkoutPlans['kelas-dika'] = checkoutPlans['paket-kelas-grup-wa-dika-maksimal-50-peserta'];
+checkoutPlans['paket-kelas-dika'] = checkoutPlans['paket-kelas-grup-wa-dika-maksimal-50-peserta'];
+checkoutPlans['komunitas-diki'] = checkoutPlans['paket-komunitas-grup-wa-diki-maksimal-50-peserta'];
+checkoutPlans['paket-komunitas-diki'] = checkoutPlans['paket-komunitas-grup-wa-diki-maksimal-50-peserta'];
+
 
 export const visualCardsData = {
   level1: [
