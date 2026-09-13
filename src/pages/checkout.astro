@@ -10,7 +10,7 @@ const uniquePlans = Array.from(
 ---
 
 <BaseLayout
-  title="Checkout & Pemesanan Paket — Kidiko"
+  title="Checkout & Pemesanan Paket : Kidiko"
   description="Konfirmasi pemesanan paket Jejoo AI dan layanan Kidiko. Hubungkan sekolah atau kelas Anda dengan asisten AI WhatsApp terbaik."
 >
   <div class="bg-slate-50 py-16 dark:bg-slate-950 min-h-[85vh]">
@@ -61,7 +61,7 @@ const uniquePlans = Array.from(
               >
                 {uniquePlans.map((p) => (
                   <option value={p.id}>
-                    {p.name} — {p.price} {p.period}
+                    {p.name} : {p.price} {p.period}
                   </option>
                 ))}
               </select>
@@ -199,7 +199,7 @@ const uniquePlans = Array.from(
             </div>
 
             <h4 id="summary-name" class="mt-2 text-xl font-bold text-slate-950 dark:text-white">
-              Jejoo AI — Sekolah Inklusi Pro
+              Jejoo AI: Sekolah Inklusi Pro
             </h4>
             <p id="summary-desc" class="mt-1 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
               Solusi lengkap sekolah penyelenggara pendidikan inklusi untuk mendukung seluruh tim guru kelas.

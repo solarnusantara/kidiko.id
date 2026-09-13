@@ -87,7 +87,7 @@ export const products = [
   },
   {
     slug: 'jejoo-guru-mandiri',
-    name: 'Jejoo AI — Guru & Pendamping Mandiri',
+    name: 'Jejoo AI: Guru & Pendamping Mandiri',
     audience: 'Guru kelas inklusi, guru pendamping khusus (GPK), orang tua',
     capacity: '1 Grup / Personal Chat',
     description:
@@ -101,7 +101,7 @@ export const products = [
   },
   {
     slug: 'jejoo-sekolah-inklusi-pro',
-    name: 'Jejoo AI — Sekolah Inklusi Pro',
+    name: 'Jejoo AI: Sekolah Inklusi Pro',
     audience: 'Sekolah Penyelenggara Pendidikan Inklusif (SPPI), SLB, Bimbel Khusus',
     capacity: 'Hingga 5 Grup Kelas / Tim Guru',
     description:
@@ -116,7 +116,7 @@ export const products = [
   },
   {
     slug: 'jejoo-kemitraan-khusus',
-    name: 'Jejoo AI — Kemitraan Dinas & Yayasan',
+    name: 'Jejoo AI: Kemitraan Dinas & Yayasan',
     audience: 'Dinas Pendidikan, Yayasan Sekolah Terpadu, Laboratorium Kampus',
     capacity: 'Skala Sekolah / Kabupaten / Custom',
     description:
@@ -128,6 +128,15 @@ export const products = [
       'Dedicated support & SLA respon cepat'
     ],
   },
+];
+
+export const featuredProductSlugs = [
+  'jejoo-sekolah-inklusi-pro',
+  'jejoo-guru-mandiri',
+  'paket-kelas-grup-wa-diko-maksimal-50-peserta',
+  'paket-keluarga-grup-wa-dika-maksimal-5-peserta',
+  'toefl-itp-kidiko',
+  'paket-komunitas-grup-wa-diki-maksimal-50-peserta',
 ];
 
 export const pillars = [
@@ -165,7 +174,7 @@ export const checkoutPlans: Record<string, PlanDetail> = {
   // --- PRODUK JEJOO AI (PENDIDIKAN INKLUSIF) ---
   'jejoo-sekolah-inklusi-pro': {
     id: 'jejoo-sekolah-inklusi-pro',
-    name: 'Jejoo AI — Sekolah Inklusi Pro',
+    name: 'Jejoo AI: Sekolah Inklusi Pro',
     category: 'Pendidikan Inklusif',
     price: 'Rp 499.000',
     period: '/bulan',
@@ -182,7 +191,7 @@ export const checkoutPlans: Record<string, PlanDetail> = {
   },
   'jejoo-guru-mandiri': {
     id: 'jejoo-guru-mandiri',
-    name: 'Jejoo AI — Guru Mandiri',
+    name: 'Jejoo AI: Guru Mandiri',
     category: 'Pendidikan Inklusif',
     price: 'Rp 99.000',
     period: '/bulan',
@@ -198,7 +207,7 @@ export const checkoutPlans: Record<string, PlanDetail> = {
   },
   'jejoo-kemitraan-khusus': {
     id: 'jejoo-kemitraan-khusus',
-    name: 'Jejoo AI — Kemitraan Dinas & Yayasan',
+    name: 'Jejoo AI: Kemitraan Dinas & Yayasan',
     category: 'Pendidikan Inklusif',
     price: 'Kemitraan Kustom',
     period: '',
